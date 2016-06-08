@@ -1,0 +1,14 @@
+[ignore]
+.*/node_modules/*
+
+[include]
+./node_modules/react-redux/*
+
+[libs]
+
+[options]
+module.system=node
+module.system.node.resolve_dirname=node_modules
+
+[version]
+0.20.1
