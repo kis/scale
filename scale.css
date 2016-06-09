@@ -52,6 +52,13 @@
       animation-name: 'mark-fade';
       animation-duration: 0.2s;
 
+      .line {
+        position: relative;
+        width: 60px;
+        height: 1px;
+        z-index: 99;
+      }
+
       &.empty {
         position: relative;
         width: 20px;
