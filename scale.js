@@ -51,24 +51,20 @@ function calculateLineOptions(currentMark, nextMark) {
    /__|
   A    C */
 
+  const PI = 3.14;
+
   let AC = BLOCK_WIDTH, BC = Math.abs(nextMark - currentMark) * BLOCK_WIDTH;
   let AB = Math.floor( Math.sqrt( Math.pow(AC, 2) + Math.pow(BC, 2) ) );
-  // console.log('AB', AB)
+  let angleA = Math.asin( BC / AB );
+  angleA = Math.floor(angleA*180/PI);
 
-  let angle = Math.asin( AC / AB );
-  console.log(angle)
-  // console.log('angle', Math.floor( Math.asin( AC / AB ) ));
-
-  // angle = Math.floor(angle*180/3.14);
-  // console.log('pied', angle)
-
-  /*if (nextMark < currentMark) {
-    angle = angle - angle*2;
-  }*/
+  if (nextMark < currentMark) {
+    angleA = -angleA;
+  }
 
   return {
     width: `${AB}px`,
-    transform: `rotate(${angle}deg)`
+    transform: `rotate(${angleA}deg)`
   };
 }
 
