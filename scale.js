@@ -1,4 +1,6 @@
-require('./scale.css');
+/* @flow weak */
+
+import './scale.css';
 
 var marks = [];
 

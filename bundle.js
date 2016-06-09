@@ -55,7 +55,7 @@
 
 	__webpack_require__(2);
 
-	var marks = [];
+	var marks = []; /* @flow */
 
 	for (var i = 0; i < 50; i++) {
 	  marks.push({ type: Math.floor(Math.random() * (10 - 1) + 1) });
