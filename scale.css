@@ -56,7 +56,10 @@
         position: relative;
         width: 60px;
         height: 1px;
+        left: 10px;
         z-index: 99;
+        background: red;
+        border: 1px solid red;
       }
 
       &.empty {

@@ -4,6 +4,7 @@ import './scale.css';
 
 const SCALE_WIDTH: number = 50;
 const SCALE_HEIGHT: number = 10;
+const BLOCK_WIDTH: number = 20;
 
 var marks = [];
 
@@ -18,18 +19,20 @@ var rulerInnerView = container;
 function render() {
   rulerInnerView.innerHTML = '';
   
-  marks.forEach(function(mark) {
-    var rulerItem = document.createElement('div');
+  marks.forEach(function(mark, markNum) {
+    let rulerItem = document.createElement('div');
     rulerItem.className = "ruler-row";
     
     for (var i=0; i<SCALE_HEIGHT; i++) {
-      var markItem = document.createElement('div');
+      let markItem = document.createElement('div');
       markItem.setAttribute("data-type", mark.type - 1 == i ? mark.type : i + 1);
       markItem.className = mark.type - 1 == i ? "mark" : "mark empty";
 
-      if (mark.type - 1 == i) {
-        var lineItem = document.createElement('hr');
-        lineItem.className = "line";
+      if (mark.type - 1 == i && markNum < marks.length - 1) {
+        let lineItem = document.createElement('hr');
+        lineItem.className = "line";        
+        let lineOptions = calculateLineOptions(i+1, marks[markNum+1].type);
+        lineItem.setAttribute("style", `width: ${lineOptions.width}; transform: ${lineOptions.transform};`);
         markItem.appendChild(lineItem);
       }
 
@@ -38,6 +41,35 @@ function render() {
 
     rulerInnerView.appendChild(rulerItem);
   });
+}
+
+function calculateLineOptions(currentMark, nextMark) {
+
+  /*  /B
+     /|
+    / |
+   /__|
+  A    C */
+
+  let AC = BLOCK_WIDTH, BC = Math.abs(nextMark - currentMark) * BLOCK_WIDTH;
+  let AB = Math.floor( Math.sqrt( Math.pow(AC, 2) + Math.pow(BC, 2) ) );
+  // console.log('AB', AB)
+
+  let angle = Math.asin( AC / AB );
+  console.log(angle)
+  // console.log('angle', Math.floor( Math.asin( AC / AB ) ));
+
+  // angle = Math.floor(angle*180/3.14);
+  // console.log('pied', angle)
+
+  /*if (nextMark < currentMark) {
+    angle = angle - angle*2;
+  }*/
+
+  return {
+    width: `${AB}px`,
+    transform: `rotate(${angle}deg)`
+  };
 }
 
 function reset(e) {
