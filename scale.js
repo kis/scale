@@ -30,9 +30,9 @@ function render() {
 
       if (mark.type - 1 == i && markNum < marks.length - 1) {
         let lineItem = document.createElement('div');
-        lineItem.className = "line";        
-        let lineOptions = calculateLineOptions(i+1, marks[markNum+1].type);
-        lineItem.setAttribute("style", `width: ${lineOptions.width}; transform: ${lineOptions.transform};`);
+        lineItem.className = "line";
+        let lineOpts = calculateLineOptions(i+1, marks[markNum+1].type);
+        lineItem.setAttribute("style", `width: ${lineOpts.width}; transform: ${lineOpts.transform};`);
         markItem.appendChild(lineItem);
       }
 
@@ -43,22 +43,19 @@ function render() {
   });
 }
 
-function calculateLineOptions(currentMark, nextMark) {
-
-  /*  /B
+/*    /B
      /|
     / |
    /__|
   A    C */
 
-  let AC = BLOCK_WIDTH, BC = Math.abs(nextMark - currentMark) * BLOCK_WIDTH;
-  let AB = Math.fround( Math.sqrt( Math.pow(AC, 2) + Math.pow(BC, 2) ) );
-  let angleA = Math.asin( BC / AB );
-  angleA = Math.fround(angleA * 180 / Math.PI);
+function calculateLineOptions(currentMark: number, nextMark: number) {
+  let AC: number = BLOCK_WIDTH, 
+      BC: number = Math.abs(nextMark - currentMark) * BLOCK_WIDTH;
+  let AB: number = Math.hypot( AC, BC );
+  let angleA: number = Math.fround( Math.asin( BC / AB ) * 180 / Math.PI);
 
-  if (nextMark < currentMark) {
-    angleA = -angleA;
-  }
+  if (nextMark < currentMark) angleA = -angleA;
 
   return {
     width: `${AB}px`,

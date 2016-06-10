@@ -84,8 +84,8 @@
 	      if (mark.type - 1 == i && markNum < marks.length - 1) {
 	        var lineItem = document.createElement('div');
 	        lineItem.className = "line";
-	        var lineOptions = calculateLineOptions(i + 1, marks[markNum + 1].type);
-	        lineItem.setAttribute("style", 'width: ' + lineOptions.width + '; transform: ' + lineOptions.transform + ';');
+	        var lineOpts = calculateLineOptions(i + 1, marks[markNum + 1].type);
+	        lineItem.setAttribute("style", 'width: ' + lineOpts.width + '; transform: ' + lineOpts.transform + ';');
 	        markItem.appendChild(lineItem);
 	      }
 
@@ -96,23 +96,19 @@
 	  });
 	}
 
-	function calculateLineOptions(currentMark, nextMark) {
-
-	  /*  /B
+	/*    /B
 	     /|
 	    / |
 	   /__|
 	  A    C */
 
+	function calculateLineOptions(currentMark, nextMark) {
 	  var AC = BLOCK_WIDTH,
 	      BC = Math.abs(nextMark - currentMark) * BLOCK_WIDTH;
-	  var AB = Math.fround(Math.sqrt(Math.pow(AC, 2) + Math.pow(BC, 2)));
-	  var angleA = Math.asin(BC / AB);
-	  angleA = Math.fround(angleA * 180 / Math.PI);
+	  var AB = Math.hypot(AC, BC);
+	  var angleA = Math.fround(Math.asin(BC / AB) * 180 / Math.PI);
 
-	  if (nextMark < currentMark) {
-	    angleA = -angleA;
-	  }
+	  if (nextMark < currentMark) angleA = -angleA;
 
 	  return {
 	    width: AB + 'px',
