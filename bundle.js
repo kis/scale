@@ -69,31 +69,39 @@
 
 	var rulerInnerView = container;
 
-	function render() {
+	function renderRulers() {
 	  rulerInnerView.innerHTML = '';
 
 	  marks.forEach(function (mark, markNum) {
 	    var rulerItem = document.createElement('div');
 	    rulerItem.className = "ruler-row";
 
-	    for (var i = 0; i < SCALE_HEIGHT; i++) {
-	      var markItem = document.createElement('div');
-	      markItem.setAttribute("data-type", mark.type - 1 == i ? mark.type : i + 1);
-	      markItem.className = mark.type - 1 == i ? "mark" : "mark empty";
-
-	      if (mark.type - 1 == i && markNum < marks.length - 1) {
-	        var lineItem = document.createElement('div');
-	        lineItem.className = "line";
-	        var lineOpts = calculateLineOptions(i + 1, marks[markNum + 1].type);
-	        lineItem.setAttribute("style", 'width: ' + lineOpts.width + '; transform: ' + lineOpts.transform + ';');
-	        markItem.appendChild(lineItem);
-	      }
-
-	      rulerItem.appendChild(markItem);
-	    }
+	    renderRow(rulerItem, mark, markNum);
 
 	    rulerInnerView.appendChild(rulerItem);
 	  });
+	}
+
+	function renderRow(rulerItem, mark, markNum) {
+	  for (var i = 0; i < SCALE_HEIGHT; i++) {
+	    var markItem = document.createElement('div');
+	    markItem.setAttribute("data-type", mark.type - 1 == i ? mark.type : i + 1);
+	    markItem.className = mark.type - 1 == i ? "mark" : "mark empty";
+
+	    if (mark.type - 1 <= i) {
+	      markItem.className += " painted";
+	    }
+
+	    if (mark.type - 1 == i && markNum < marks.length - 1) {
+	      var lineItem = document.createElement('div');
+	      lineItem.className = "line";
+	      var lineOpts = calculateLineOptions(i + 1, marks[markNum + 1].type);
+	      lineItem.setAttribute("style", 'width: ' + lineOpts.width + '; transform: ' + lineOpts.transform + ';');
+	      markItem.appendChild(lineItem);
+	    }
+
+	    rulerItem.appendChild(markItem);
+	  }
 	}
 
 	/*    /B
@@ -121,10 +129,10 @@
 	    marks[i].type = Math.floor(Math.random() * (SCALE_HEIGHT - 1) + 1);
 	  }
 
-	  render();
+	  renderRulers();
 	}
 
-	render();
+	renderRulers();
 
 	container.addEventListener('click', reset);
 
@@ -163,7 +171,7 @@
 
 
 	// module
-	exports.push([module.id, "@-webkit-keyframes 'empty-fade' {\n  0% {\n    background: rgba(255,233,144,0.1);\n    border-radius: 15px;\n  }\n  50% {\n    background: rgba(255,233,144,0.5);\n    border-radius: 8px;\n  }\n  100% {\n    background: rgba(255,233,144,1);\n    border-radius: 1px;\n  } \n}\n\n@keyframes 'empty-fade' {\n  0% {\n    background: rgba(255,233,144,0.1);\n    border-radius: 15px;\n  }\n  50% {\n    background: rgba(255,233,144,0.5);\n    border-radius: 8px;\n  }\n  100% {\n    background: rgba(255,233,144,1);\n    border-radius: 1px;\n  } \n}\n\n@-webkit-keyframes 'mark-fade' {\n  0% {\n    background: rgba(255,90,0,0.1);\n    border-radius: 11px;\n  }\n  30% {\n    background: rgba(255,90,0,0.3);\n    border-radius: 10px;\n  }\n  60% {\n    background: rgba(255,90,0,0.6);\n    border-radius: 6px;\n  }\n  100% {\n    background: rgba(255,90,0,1);\n    border-radius: 1px;\n  } \n}\n\n@keyframes 'mark-fade' {\n  0% {\n    background: rgba(255,90,0,0.1);\n    border-radius: 11px;\n  }\n  30% {\n    background: rgba(255,90,0,0.3);\n    border-radius: 10px;\n  }\n  60% {\n    background: rgba(255,90,0,0.6);\n    border-radius: 6px;\n  }\n  100% {\n    background: rgba(255,90,0,1);\n    border-radius: 1px;\n  } \n}\n\n.ruler-container {\n  background: #e5efe8;\n  width: 1000px;\n  height: 200px;\n  position: relative;  \n}\n\n.ruler-container .ruler-row {\n  display: inline-block; \n}\n\n.ruler-container .ruler-row .mark {\n  position: relative;\n  width: 20px;\n  height: 20px;\n  background: rgba(255,90,0,1);\n  border-top: 1px solid rgba(249,250,249, 0.9);\n  border-left: 1px solid rgba(249,250,249, 0.9);\n  box-sizing: border-box;\n  -webkit-animation-name: 'mark-fade';\n          animation-name: 'mark-fade';\n  -webkit-animation-duration: 0.2s;\n          animation-duration: 0.2s; \n}\n\n.ruler-container .ruler-row .mark .line {\n  position: relative;\n  top: 10px;\n  left: 10px;\n  z-index: 99;\n  background: rgba(187, 22, 176, 0.6);\n  border: 2px solid rgba(187, 22, 176, 0.6);\n  box-sizing: border-box;\n  -webkit-transform-origin: left center;\n          transform-origin: left center \n}\n\n.ruler-container .ruler-row .mark .line:hover {\n  border: 2px solid rgba(119, 14, 112, 1); \n}\n\n.ruler-container .ruler-row .mark.empty {\n  position: relative;\n  width: 20px;\n  height: 20px;\n  background: #f6f0c7;\n  cursor: default;\n  -webkit-animation-name: 'empty-fade';\n          animation-name: 'empty-fade';\n  -webkit-animation-duration: 0.2s;\n          animation-duration: 0.2s; \n}\n\n.ruler-container .ruler-row .mark:hover, .ruler-container .ruler-row .empty:hover {\n  cursor: pointer;\n  background: #f9dba3; \n}", ""]);
+	exports.push([module.id, "@-webkit-keyframes 'empty-fade' {\n  0% {\n    background: rgba(255,233,144,0.1);\n    border-radius: 15px;\n  }\n  50% {\n    background: rgba(255,233,144,0.5);\n    border-radius: 8px;\n  }\n  100% {\n    background: rgba(255,233,144,1);\n    border-radius: 1px;\n  } \n}\n\n@keyframes 'empty-fade' {\n  0% {\n    background: rgba(255,233,144,0.1);\n    border-radius: 15px;\n  }\n  50% {\n    background: rgba(255,233,144,0.5);\n    border-radius: 8px;\n  }\n  100% {\n    background: rgba(255,233,144,1);\n    border-radius: 1px;\n  } \n}\n\n@-webkit-keyframes 'mark-fade' {\n  0% {\n    background: rgba(255,90,0,0.1);\n    border-radius: 11px;\n  }\n  30% {\n    background: rgba(255,90,0,0.3);\n    border-radius: 10px;\n  }\n  60% {\n    background: rgba(255,90,0,0.6);\n    border-radius: 6px;\n  }\n  100% {\n    background: rgba(255,90,0,1);\n    border-radius: 1px;\n  } \n}\n\n@keyframes 'mark-fade' {\n  0% {\n    background: rgba(255,90,0,0.1);\n    border-radius: 11px;\n  }\n  30% {\n    background: rgba(255,90,0,0.3);\n    border-radius: 10px;\n  }\n  60% {\n    background: rgba(255,90,0,0.6);\n    border-radius: 6px;\n  }\n  100% {\n    background: rgba(255,90,0,1);\n    border-radius: 1px;\n  } \n}\n\n.ruler-container {\n  background: #e5efe8;\n  width: 1000px;\n  height: 200px;\n  position: relative;  \n}\n\n.ruler-container .ruler-row {\n  display: inline-block; \n}\n\n.ruler-container .ruler-row .mark {\n  position: relative;\n  width: 20px;\n  height: 20px;\n  background: rgba(255,90,0,1);\n  border-top: 1px solid rgba(249,250,249, 0.9);\n  border-left: 1px solid rgba(249,250,249, 0.9);\n  box-sizing: border-box;\n  -webkit-animation-name: 'mark-fade';\n          animation-name: 'mark-fade';\n  -webkit-animation-duration: 0.2s;\n          animation-duration: 0.2s; \n}\n\n.ruler-container .ruler-row .mark .line {\n  position: relative;\n  top: 10px;\n  left: 10px;\n  z-index: 99;\n  background: rgba(187, 22, 176, 0.6);\n  border: 2px solid rgba(187, 22, 176, 0.6);\n  box-sizing: border-box;\n  -webkit-transform-origin: left center;\n          transform-origin: left center \n}\n\n.ruler-container .ruler-row .mark .line:hover {\n  border: 2px solid rgba(119, 14, 112, 1); \n}\n\n.ruler-container .ruler-row .mark.empty {\n  position: relative;\n  width: 20px;\n  height: 20px;\n  background: #f6f0c7;\n  cursor: default;\n  -webkit-animation-name: 'empty-fade';\n          animation-name: 'empty-fade';\n  -webkit-animation-duration: 0.2s;\n          animation-duration: 0.2s; \n}\n\n.ruler-container .ruler-row .mark.painted {\n  background: rgba(255,90,0,0.5); \n}\n\n.ruler-container .ruler-row .mark:hover, .ruler-container .ruler-row .empty:hover {\n  cursor: pointer;\n  background: #f9dba3; \n}", ""]);
 
 	// exports
 

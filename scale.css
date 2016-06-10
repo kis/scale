@@ -76,6 +76,10 @@
         animation-name: 'empty-fade';
         animation-duration: 0.2s;
       }
+
+      &.painted {
+        background: rgba(255,90,0,0.5);
+      }
     } 
     
     .mark:hover, .empty:hover {

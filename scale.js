@@ -16,31 +16,37 @@ var container = document.getElementsByClassName('ruler-container')[0];
 
 var rulerInnerView = container;
 
-function render() {
+function renderRulers() {
   rulerInnerView.innerHTML = '';
   
   marks.forEach(function(mark, markNum) {
     let rulerItem = document.createElement('div');
-    rulerItem.className = "ruler-row";
-    
-    for (var i=0; i<SCALE_HEIGHT; i++) {
-      let markItem = document.createElement('div');
-      markItem.setAttribute("data-type", mark.type - 1 == i ? mark.type : i + 1);
-      markItem.className = mark.type - 1 == i ? "mark" : "mark empty";
-
-      if (mark.type - 1 == i && markNum < marks.length - 1) {
-        let lineItem = document.createElement('div');
-        lineItem.className = "line";
-        let lineOpts = calculateLineOptions(i+1, marks[markNum+1].type);
-        lineItem.setAttribute("style", `width: ${lineOpts.width}; transform: ${lineOpts.transform};`);
-        markItem.appendChild(lineItem);
-      }
-
-      rulerItem.appendChild(markItem);
-    }
-
+    rulerItem.className = "ruler-row";    
+    renderRow(rulerItem, mark, markNum);
     rulerInnerView.appendChild(rulerItem);
   });
+}
+
+function renderRow(rulerItem, mark, markNum) {
+  for (var i=0; i<SCALE_HEIGHT; i++) {
+    let markItem = document.createElement('div');
+    markItem.setAttribute("data-type", mark.type - 1 == i ? mark.type : i + 1);
+    markItem.className = mark.type - 1 == i ? "mark" : "mark empty";
+
+    if (mark.type - 1 <= i) {
+      markItem.className += " painted";
+    }
+
+    if (mark.type - 1 == i && markNum < marks.length - 1) {
+      let lineItem = document.createElement('div');
+      lineItem.className = "line";
+      let lineOpts = calculateLineOptions(i+1, marks[markNum+1].type);
+      lineItem.setAttribute("style", `width: ${lineOpts.width}; transform: ${lineOpts.transform};`);
+      markItem.appendChild(lineItem);
+    }
+
+    rulerItem.appendChild(markItem);
+  }
 }
 
 /*    /B
@@ -68,9 +74,9 @@ function reset(e) {
     marks[i].type = Math.floor(Math.random() * (SCALE_HEIGHT - 1) + 1);
   }
   
-  render();
+  renderRulers();
 }
 
-render();
+renderRulers();
 
 container.addEventListener('click', reset);
