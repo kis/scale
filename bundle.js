@@ -86,9 +86,7 @@
 	    markItem.setAttribute("data-type", mark.type - 1 == i ? mark.type : i + 1);
 	    markItem.className = mark.type - 1 == i ? "mark pinned" : "mark empty";
 
-	    if (mark.type - 1 <= i) {
-	      markItem.className += " painted";
-	    }
+	    if (mark.type - 1 <= i) markItem.className += " painted";
 
 	    if (mark.type - 1 == i && markNum < marks.length - 1) {
 	      var lineItem = document.createElement('div');
