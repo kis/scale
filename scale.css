@@ -54,14 +54,16 @@
 
       .line {
         position: relative;
+        top: 10px;
         left: 10px;
         z-index: 99;
         background: rgba(187, 22, 176, 0.6);
-        border: 1px solid rgba(187, 22, 176, 0.6);
+        border: 2px solid rgba(187, 22, 176, 0.6);
+        box-sizing: border-box;
         transform-origin: left center;
 
         &:hover {
-          border: 1px solid rgba(187, 22, 176, 1);
+          border: 2px solid rgba(119, 14, 112, 1);
         }
       }
 

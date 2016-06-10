@@ -29,7 +29,7 @@ function render() {
       markItem.className = mark.type - 1 == i ? "mark" : "mark empty";
 
       if (mark.type - 1 == i && markNum < marks.length - 1) {
-        let lineItem = document.createElement('hr');
+        let lineItem = document.createElement('div');
         lineItem.className = "line";        
         let lineOptions = calculateLineOptions(i+1, marks[markNum+1].type);
         lineItem.setAttribute("style", `width: ${lineOptions.width}; transform: ${lineOptions.transform};`);
@@ -51,12 +51,10 @@ function calculateLineOptions(currentMark, nextMark) {
    /__|
   A    C */
 
-  const PI = 3.14;
-
   let AC = BLOCK_WIDTH, BC = Math.abs(nextMark - currentMark) * BLOCK_WIDTH;
-  let AB = Math.floor( Math.sqrt( Math.pow(AC, 2) + Math.pow(BC, 2) ) );
+  let AB = Math.fround( Math.sqrt( Math.pow(AC, 2) + Math.pow(BC, 2) ) );
   let angleA = Math.asin( BC / AB );
-  angleA = Math.floor(angleA*180/PI);
+  angleA = Math.fround(angleA * 180 / Math.PI);
 
   if (nextMark < currentMark) {
     angleA = -angleA;
