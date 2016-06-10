@@ -31,7 +31,7 @@ function renderRow(rulerItem, mark, markNum) {
   for (var i=0; i<SCALE_HEIGHT; i++) {
     let markItem = document.createElement('div');
     markItem.setAttribute("data-type", mark.type - 1 == i ? mark.type : i + 1);
-    markItem.className = mark.type - 1 == i ? "mark" : "mark empty";
+    markItem.className = mark.type - 1 == i ? "mark pinned" : "mark empty";
 
     if (mark.type - 1 <= i) {
       markItem.className += " painted";

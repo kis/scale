@@ -68,13 +68,13 @@
       }
 
       &.empty {
-        position: relative;
-        width: 20px;
-        height: 20px;
         background: #f6f0c7;
-        cursor: default;
         animation-name: 'empty-fade';
         animation-duration: 0.2s;
+      }
+
+      &.pinned {
+        background: rgba(255,90,0,1) !important;
       }
 
       &.painted {
