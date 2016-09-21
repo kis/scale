@@ -1,0 +1,90 @@
+@keyframes 'empty-fade' {
+  0% {
+    background: rgba(255,233,144,0.1);
+    border-radius: 15px;
+  }
+  50% {
+    background: rgba(255,233,144,0.5);
+    border-radius: 8px;
+  }
+  100% {
+    background: rgba(255,233,144,1);
+    border-radius: 1px;
+  } 
+}
+
+@keyframes 'mark-fade' {
+  0% {
+    background: rgba(255,90,0,0.1);
+    border-radius: 11px;
+  }
+  30% {
+    background: rgba(255,90,0,0.3);
+    border-radius: 10px;
+  }
+  60% {
+    background: rgba(255,90,0,0.6);
+    border-radius: 6px;
+  }
+  100% {
+    background: rgba(255,90,0,1);
+    border-radius: 1px;
+  } 
+}
+
+.ruler-container {
+  background: #e5efe8;
+  width: 1000px;
+  height: 200px;
+  position: relative;
+  
+  .ruler-row {
+    display: inline-block;
+    
+    .mark {
+      position: relative;
+      width: 20px;
+      height: 20px;
+      background: rgba(255,90,0,1);
+      border-top: 1px solid rgba(249,250,249, 0.9);
+      border-left: 1px solid rgba(249,250,249, 0.9);
+      box-sizing: border-box;
+      animation-name: 'mark-fade';
+      animation-duration: 0.2s;
+
+      .line {
+        position: relative;
+        top: 10px;
+        left: 10px;
+        z-index: 99;
+        background: rgba(187, 22, 176, 0.6);
+        border: 2px solid rgba(187, 22, 176, 0.6);
+        box-sizing: border-box;
+        transform-origin: left center;
+
+        &:hover {
+          border: 2px solid rgba(119, 14, 112, 1);
+        }
+      }
+
+      &.empty {
+        background: #f6f0c7;
+        animation-name: 'empty-fade';
+        animation-duration: 0.2s;
+      }
+
+      &.pinned {
+        background: rgba(255,90,0,1) !important;
+      }
+
+      &.painted {
+        background: rgba(255,90,0,0.5);
+      }
+    } 
+    
+    .mark:hover, .empty:hover {
+      cursor: pointer;
+      background: #f9dba3;
+    }
+  }  
+}
