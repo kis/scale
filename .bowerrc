@@ -1,0 +1,6 @@
+{
+  "directory": "library",
+  "registry": "http://bower.herokuapp.com",
+  "proxy":"http://124.88.67.32:80",
+  "https-proxy":"http://137.135.166.225:8121"
+}

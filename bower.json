@@ -1,0 +1,26 @@
+{
+  "name": "angular-scale",
+  "main": "scale.js",
+  "version": "v2.0.0",
+  "homepage": "https://github.com/kirillstepkin/scale",
+  "authors": [
+    "Kirill Stepkin <kirillstyopkin@gmail.com>"
+  ],
+  "description": "Cute scale of items for angular",
+  "keywords": [
+    "angular",
+    "angular-scale",
+    "angularjs",
+    "scale",
+    "items",
+    "dataset"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

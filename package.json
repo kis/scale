@@ -1,8 +1,16 @@
 {
-  "name": "scale",
-  "version": "1.0.0",
+  "name": "angular-scale",
+  "version": "2.0.0",
   "description": "Scale of items",
+  "keywords": [
+    "angular",
+    "angular-scale",
+    "angularjs",
+    "scale",
+    "items",
+    "dataset"
+  ],
   "main": "scale.js",
-  "author": "",
-  "license": "MIT",
+  "author": "Kirill Stepkin https://github.com/kirillstepkin/scale",
+  "license": "MIT"
 }
