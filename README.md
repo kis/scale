@@ -1,6 +1,6 @@
 # Scale
 
-Scale of items example
+Angular plugin for building scale of items. Chart ruler completely on HTML/CSS/JS.
 
 ![alt text](https://raw.githubusercontent.com/kirillstepkin/scale/master/output_eSVfyQ.gif)
 
@@ -39,5 +39,7 @@ var myApp = angular.module( "myApp", [ "scale" ]);
 ### License
 
 Copyright (c) 2016 [Kirill Stepkin]
+
+Inspired by [kinopoisk.ru] chart.
 
 Released under the [MIT License](https://github.com/goldfire/howler.js/blob/master/LICENSE.md).

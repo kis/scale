@@ -13,7 +13,10 @@
     "angularjs",
     "scale",
     "items",
-    "dataset"
+    "dataset",
+    "chart",
+    "ruler",
+    "kinopoisk"
   ],
   "license": "MIT",
   "ignore": [

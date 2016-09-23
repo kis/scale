@@ -8,7 +8,10 @@
     "angularjs",
     "scale",
     "items",
-    "dataset"
+    "dataset",
+    "chart",
+    "ruler",
+    "kinopoisk"
   ],
   "main": "scale.js",
   "author": "Kirill Stepkin https://github.com/kirillstepkin/scale",
