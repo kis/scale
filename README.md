@@ -2,6 +2,8 @@
 
 Angular plugin for building scale of items. Chart ruler completely on HTML/CSS/JS.
 
+[https://www.npmjs.com/package/angular-scale](https://www.npmjs.com/package/angular-scale)
+
 ![alt text](https://raw.githubusercontent.com/kirillstepkin/scale/master/output_eSVfyQ.gif)
 
 ### Getting started
@@ -38,7 +40,7 @@ var myApp = angular.module( "myApp", [ "scale" ]);
 
 ### License
 
-Copyright (c) 2016 [Kirill Stepkin]
+Copyright (c) 2016 [Kirill Stepkin](https://www.npmjs.com/~kirillstyopkin)
 
 Inspired by [kinopoisk.ru] chart.
 
