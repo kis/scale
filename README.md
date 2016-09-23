@@ -42,6 +42,6 @@ var myApp = angular.module( "myApp", [ "scale" ]);
 
 Copyright (c) 2016 [Kirill Stepkin](https://www.npmjs.com/~kirillstyopkin)
 
-Inspired by [kinopoisk.ru] chart.
+Inspired by [kinopoisk.ru](https://www.kinopoisk.ru/) chart.
 
 Released under the [MIT License](https://github.com/goldfire/howler.js/blob/master/LICENSE.md).
