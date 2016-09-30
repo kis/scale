@@ -1,7 +1,7 @@
 {
   "name": "angular-scale",
-  "version": "2.0.2",
-  "description": "Scale of items chart like on http://kinopoisk.ru",
+  "version": "2.0.3",
+  "description": "Angular plugin for building a scale of items. Chart ruler completely on HTML/CSS/JS. Inspired by kinopoisk.ru chart. Feel free for contribute.",
   "keywords": [
     "angular",
     "angular-scale",
