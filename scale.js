@@ -32,87 +32,47 @@
 
 'use strict';
 
-angular.module('scale', ['ng']).directive('scale', [function() {
+angular.module('scale', ['ng']).directive('scale', ['$templateCache', function($templateCache) {
   return {
     restrict: 'E',
+    templateUrl: 'scale.htm',
+    scope: {
+      data: '='
+    },
     link: function(scope, element, attrs) {
       var SCALE_WIDTH = 50,
           SCALE_HEIGHT = 10,
           BLOCK_WIDTH = 20;
 
-      var marks = [];
+      scope.rowBlocks = new Array(SCALE_HEIGHT);
+      scope.marks = scope.data;
 
-      for (var i=0; i < SCALE_WIDTH; i++) {
-        marks.push({type: Math.floor(Math.random() * (SCALE_HEIGHT - 1) + 1) });
-      }
+      scope.calcStyle = function(keyBlock, keyMark) {
+        var i = keyBlock,
+            j = scope.marks[keyMark+1].type;
 
-      function renderRulers() {
-        element[0].innerHTML = '';
-
-        var rulerCont = document.createElement('div');
-        rulerCont.className = "ruler-container";   
-
-        element[0].appendChild(rulerCont);
-        
-        marks.forEach(function(mark, markNum) {
-          var rulerItem = document.createElement('div');
-          rulerItem.className = "ruler-row";    
-          renderRow(rulerItem, mark, markNum);
-          rulerCont.appendChild(rulerItem);
-        });
-      }
-
-      function renderRow(rulerItem, mark, markNum) {
-        for (var i=0; i < SCALE_HEIGHT; i++) {
-          var markItem = document.createElement('div');
-          markItem.setAttribute("data-type", mark.type - 1 == i ? mark.type : i + 1);
-          markItem.className = mark.type - 1 == i ? "mark pinned" : "mark empty";
-
-          if (mark.type - 1 <= i) markItem.className += " painted";
-
-          if (mark.type - 1 == i && markNum < marks.length - 1) {
-            var lineItem = document.createElement('div');
-            lineItem.className = "line";
-            var lineOpts = calculateLineOptions(i+1, marks[markNum+1].type);
-            lineItem.setAttribute("style", `width: ${lineOpts.width}; transform: ${lineOpts.transform};`);
-            markItem.appendChild(lineItem);
-          }
-
-          rulerItem.appendChild(markItem);
-        }
-      }
-
-      /*    /B
-           /|
-          / |
-         /__|
-        A    C */
-
-      function calculateLineOptions(currentMark, nextMark) {
         var AC = BLOCK_WIDTH, 
-            BC = Math.abs(nextMark - currentMark) * BLOCK_WIDTH;
+            BC = Math.abs(j - i) * BLOCK_WIDTH;
         var AB = Math.hypot( AC, BC );
         var angleA = Math.fround( Math.asin( BC / AB ) * 180 / Math.PI);
 
-        if (nextMark < currentMark) angleA = -angleA;
+        if (j < i) angleA = -angleA;
 
         return {
-          width: AB + 'px',
-          transform: 'rotate(' + angleA + 'deg)'
+          "width": AB + "px",
+          "transform": "rotate(" + angleA + "deg)"
         };
-      }
-
-      function reset(e) {
-        for (var i=0; i<SCALE_WIDTH; i++) {
-          marks[i].type = Math.floor(Math.random() * (SCALE_HEIGHT - 1) + 1);
-        }
-        
-        renderRulers();
-      }
-
-      renderRulers();
-
-      element[0].addEventListener('click', reset);
+      };
     }
   }
+}]).run( [ '$templateCache' , function( $templateCache ) {
+  var template = '<div class="ruler-container">' + 
+    '<div class="ruler-row" ng-repeat="(keyMark, mark) in marks track by $index">' +
+      '<div class="mark" ng-class="{\'painted\': $index > mark.type, \'empty\': $index < mark.type}" ng-repeat="(keyBlock, block) in rowBlocks track by $index">' +
+        '<div class="line" ng-if="$index == mark.type && keyMark < marks.length - 1" ng-style="calcStyle(keyBlock, keyMark)"></div>' +
+      '</div>' + 
+    '</div>' +
+  '</div>';
+
+  $templateCache.put( 'scale.htm' , template );
 }]);

@@ -14,8 +14,14 @@
     "scale",
     "items",
     "dataset",
+<<<<<<< HEAD
     "kinopoisk",
     "chart"
+=======
+    "chart",
+    "ruler",
+    "kinopoisk"
+>>>>>>> fcb0a5034635fdfdaa0ba3e6a69c09f33605360a
   ],
   "license": "MIT",
   "ignore": [
