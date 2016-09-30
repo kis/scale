@@ -6,14 +6,16 @@
   "authors": [
     "Kirill Stepkin <kirillstyopkin@gmail.com>"
   ],
-  "description": "Cute scale of items for angular",
+  "description": "Cute scale of items chart like on http://kinopoisk.ru for Angular",
   "keywords": [
     "angular",
     "angular-scale",
     "angularjs",
     "scale",
     "items",
-    "dataset"
+    "dataset",
+    "kinopoisk",
+    "chart"
   ],
   "license": "MIT",
   "ignore": [

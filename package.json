@@ -1,16 +1,23 @@
 {
   "name": "angular-scale",
-  "version": "2.0.0",
-  "description": "Scale of items",
+  "version": "2.0.2",
+  "description": "Scale of items chart like on http://kinopoisk.ru",
   "keywords": [
     "angular",
     "angular-scale",
     "angularjs",
     "scale",
     "items",
-    "dataset"
+    "dataset",
+    "kinopoisk",
+    "chart"
   ],
+  "repository": "kirillstepkin/scale",
   "main": "scale.js",
-  "author": "Kirill Stepkin https://github.com/kirillstepkin/scale",
+  "author": {
+    "name": "Kirill Stepkin",
+    "email": "kirillstyopkin@gmail.com",
+    "url": "github.com/kirillstepkin"
+  },
   "license": "MIT"
 }
