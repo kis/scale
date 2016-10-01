@@ -8,6 +8,10 @@ Angular plugin for building scale of items. Chart ruler completely on HTML/CSS/J
 
 ![alt text](https://raw.githubusercontent.com/kirillstepkin/scale/master/output_eSVfyQ.gif)
 
+Inspired by kinopoisk.ru chart. Feel free for contribute.
+
+![alt text](https://raw.githubusercontent.com/kirillstepkin/scale/master/output_eSVfyQ.gif)
+
 ### Getting started
 
 ```
