@@ -5,48 +5,79 @@
   position: relative;
 }
   
-.ruler-row {
+.ruler-container .ruler-row {
   display: inline-block;
 }
     
-.mark {
+.ruler-row .mark {
   position: relative;
   width: 20px;
   height: 20px;
-  background: rgba(255,90,0,1);
   border-top: 1px solid rgba(249,250,249, 0.9);
   border-left: 1px solid rgba(249,250,249, 0.9);
   box-sizing: border-box;
 }
 
-.line {
+.ruler-row .mark:hover {
+  cursor: pointer;
+}
+
+.mark .line {
   position: relative;
   top: 10px;
   left: 10px;
   z-index: 99;
-  background: rgba(187, 22, 176, 0.6);
-  border: 2px solid rgba(187, 22, 176, 0.6);
   box-sizing: border-box;
   transform-origin: left center;
 }
 
-.line:hover {
-  border: 2px solid rgba(119, 14, 112, 1);
+/* default theme */
+.default .mark {
+  background: rgba(255,90,0,1);
 }
 
-.empty {
+.default .empty {
   background: #f6f0c7;
 }
 
-.pinned {
-  background: rgba(255,90,0,1) !important;
-}
-
-.painted {
+.default .painted {
   background: rgba(255,90,0,0.5);
 } 
-    
-.mark:hover, .empty:hover {
-  cursor: pointer;
-  background: #f9dba3;
+
+.default .line {
+  border: 2px solid #9C27B0;
+}
+
+/* purple theme */
+.purple .mark {
+  background: #448AFF;
+}
+
+.purple .empty {
+  background: #E1BEE7;
+}
+
+.purple .painted {
+  background: #BDBDBD;
+}
+
+.purple .line {
+  border: 2px solid #9C27B0;
+}
+
+/* grey theme */
+.grey .mark {
+  background: #9E9E9E;
+}
+
+.grey .empty {
+  background: #FFFFFF;
+}
+
+.grey .painted {
+  background: #CFD8DC;
+}
+
+.grey .line {
+  border: 2px solid #455A64;
 }

@@ -29,7 +29,7 @@ npm install angular-scale
 		<link rel="stylesheet" type="text/css" href="../scale.css">
 	</head>
 	<body ng-controller="main">
-		<scale data="data"></scale>
+		<scale data="data" theme="default"></scale>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 		<script src="../scale.js"></script>
@@ -55,14 +55,21 @@ angular.module('myApp', ['scale']).controller('main', ['$scope', function($scope
 }]);
 ```
 
+### Themes
+
+* default
+* purple
+* grey
+
+![alt text](https://raw.githubusercontent.com/kirillstepkin/scale/master/img/024486fd94.jpg)
+
 ### Future features
 
-* Implement different color schemes
 * Implement more options and controls to edit chart features
 
 ### Changelog
 
-* 10/01/2016 Updated project README.
+* 10/01/2016 Implemented different color schemes
 * 09/20/2016 Rewriting the project as an Angular.js plugin.
 * 06/05/2016 Finished writing function for calculating angle of the line that connects the points of the chart. Rendering chart.
 

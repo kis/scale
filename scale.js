@@ -40,6 +40,8 @@ angular.module('scale', ['ng']).directive('scale', ['$templateCache', function($
       data: '='
     },
     link: function(scope, element, attrs) {
+      scope.theme = attrs.theme || 'default';
+
       var SCALE_WIDTH = 50,
           SCALE_HEIGHT = 10,
           BLOCK_WIDTH = 20;
@@ -66,7 +68,7 @@ angular.module('scale', ['ng']).directive('scale', ['$templateCache', function($
     }
   }
 }]).run( [ '$templateCache' , function( $templateCache ) {
-  var template = '<div class="ruler-container">' + 
+  var template = '<div class="ruler-container {{theme}}">' + 
     '<div class="ruler-row" ng-repeat="(keyMark, mark) in marks track by $index">' +
       '<div class="mark" ng-class="{\'painted\': $index > mark.value, \'empty\': $index < mark.value}" ng-repeat="(keyBlock, block) in rowBlocks track by $index">' +
         '<div class="line" ng-if="$index == mark.value && keyMark < marks.length - 1" ng-style="calcStyle(keyBlock, keyMark)"></div>' +
