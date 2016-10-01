@@ -49,7 +49,7 @@ angular.module('scale', ['ng']).directive('scale', ['$templateCache', function($
 
       scope.calcStyle = function(keyBlock, keyMark) {
         var i = keyBlock,
-            j = scope.marks[keyMark+1].type;
+            j = scope.marks[keyMark+1].value;
 
         var AC = BLOCK_WIDTH, 
             BC = Math.abs(j - i) * BLOCK_WIDTH;
@@ -68,8 +68,8 @@ angular.module('scale', ['ng']).directive('scale', ['$templateCache', function($
 }]).run( [ '$templateCache' , function( $templateCache ) {
   var template = '<div class="ruler-container">' + 
     '<div class="ruler-row" ng-repeat="(keyMark, mark) in marks track by $index">' +
-      '<div class="mark" ng-class="{\'painted\': $index > mark.type, \'empty\': $index < mark.type}" ng-repeat="(keyBlock, block) in rowBlocks track by $index">' +
-        '<div class="line" ng-if="$index == mark.type && keyMark < marks.length - 1" ng-style="calcStyle(keyBlock, keyMark)"></div>' +
+      '<div class="mark" ng-class="{\'painted\': $index > mark.value, \'empty\': $index < mark.value}" ng-repeat="(keyBlock, block) in rowBlocks track by $index">' +
+        '<div class="line" ng-if="$index == mark.value && keyMark < marks.length - 1" ng-style="calcStyle(keyBlock, keyMark)"></div>' +
       '</div>' + 
     '</div>' +
   '</div>';
