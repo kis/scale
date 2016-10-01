@@ -8,9 +8,9 @@ Angular plugin for building scale of items. Chart ruler completely on HTML/CSS/J
 
 ![alt text](https://raw.githubusercontent.com/kirillstepkin/scale/master/output_eSVfyQ.gif)
 
-Inspired by kinopoisk.ru chart. Feel free for contribute.
+Inspired by kinopoisk.ru chart written using Adobe Flash. Also d3.js has such kind of chart written on Canvas. But this chart is just on HTML/CSS. Feel free for contribute.
 
-![alt text](https://raw.githubusercontent.com/kirillstepkin/scale/master/output_eSVfyQ.gif)
+![alt text](https://raw.githubusercontent.com/kirillstepkin/scale/master/84d858c0af.png)
 
 ### Getting started
 
