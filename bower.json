@@ -6,7 +6,7 @@
   "authors": [
     "Kirill Stepkin <kirillstyopkin@gmail.com>"
   ],
-  "description": "Angular plugin for building a scale of items. Chart ruler completely on HTML/CSS/JS. Inspired by kinopoisk.ru chart. Feel free for contribute.",
+  "description": "Angular plugin for building a scale of items. Chart ruler completely on HTML/CSS. Inspired by kinopoisk.ru chart",
   "keywords": [
     "angular",
     "angular-scale",
