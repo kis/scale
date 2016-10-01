@@ -1,8 +1,10 @@
 # Scale
 
-Angular plugin for building scale of items. Chart ruler completely on HTML/CSS/JS.
+[![NPM Version](https://img.shields.io/npm/v/angular-scale.svg)](https://www.npmjs.com/package/angular-scale)
+[![Download Month](https://img.shields.io/npm/dm/angular-scale.svg)](https://www.npmjs.com/package/angular-scale)
+[![Download Total](https://img.shields.io/npm/dt/angular-scale.svg)](https://www.npmjs.com/package/angular-scale)
 
-[https://www.npmjs.com/package/angular-scale](https://www.npmjs.com/package/angular-scale)
+Angular plugin for building scale of items. Chart ruler completely on HTML/CSS/JS.
 
 ![alt text](https://raw.githubusercontent.com/kirillstepkin/scale/master/output_eSVfyQ.gif)
 
@@ -37,6 +39,17 @@ npm install angular-scale
 ```javascript
 var myApp = angular.module( "myApp", [ "scale" ]);
 ```
+
+### Todo
+
+* Implement different color schemes
+* Implement more options and controls to edit chart features
+
+### Changelog
+
+* 10/01/2016 Updated project README.
+* 09/20/2016 Rewriting the project as an Angular.js plugin.
+* 06/05/2016 Finished writing function for calculating angle of the line that connects the points of the chart. Rendering chart.
 
 ### License
 
