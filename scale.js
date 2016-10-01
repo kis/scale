@@ -42,12 +42,19 @@ angular.module('scale', ['ng']).directive('scale', ['$templateCache', function($
     link: function(scope, element, attrs) {
       scope.theme = attrs.theme || 'default';
 
-      var SCALE_WIDTH = 50,
-          SCALE_HEIGHT = 10,
-          BLOCK_WIDTH = 20;
+      var SCALE_WIDTH = parseInt(attrs.width) || 50,
+          SCALE_HEIGHT = parseInt(attrs.height) || 10,
+          BLOCK_WIDTH = parseInt(attrs.blockWidth) || 20;
+
+      scope.blockStyle = {
+        width: BLOCK_WIDTH + 'px',
+        height: BLOCK_WIDTH + 'px'
+      };
 
       scope.rowBlocks = new Array(SCALE_HEIGHT);
-      scope.marks = scope.data;
+
+      var initData = angular.copy(scope.data);
+      scope.marks = initData.splice(initData.length - SCALE_WIDTH, initData.length);
 
       scope.calcStyle = function(keyBlock, keyMark) {
         var i = keyBlock,
@@ -70,7 +77,7 @@ angular.module('scale', ['ng']).directive('scale', ['$templateCache', function($
 }]).run( [ '$templateCache' , function( $templateCache ) {
   var template = '<div class="ruler-container {{theme}}">' + 
     '<div class="ruler-row" ng-repeat="(keyMark, mark) in marks track by $index">' +
-      '<div class="mark" ng-class="{\'painted\': $index > mark.value, \'empty\': $index < mark.value}" ng-repeat="(keyBlock, block) in rowBlocks track by $index">' +
+      '<div class="mark" ng-style="blockStyle" ng-class="{\'painted\': $index > mark.value, \'empty\': $index < mark.value}" ng-repeat="(keyBlock, block) in rowBlocks track by $index">' +
         '<div class="line" ng-if="$index == mark.value && keyMark < marks.length - 1" ng-style="calcStyle(keyBlock, keyMark)"></div>' +
       '</div>' + 
     '</div>' +

@@ -5,11 +5,26 @@
 		<link rel="stylesheet" type="text/css" href="../scale.css">
 	</head>
 	<body ng-controller="main">
-		<scale data="data" theme="default"></scale>
+		<scale data="data" 
+			   width="50" 
+			   height="10"
+			   block-width="20"
+			   theme="default">
+		</scale>
 
-		<scale data="data" theme="purple"></scale>
+		<scale data="data" 
+			   width="40" 
+			   height="10"
+			   block-width="20"
+			   theme="purple">
+		</scale>
 
-		<scale data="data" theme="grey"></scale>
+		<scale data="data" 
+			   width="30"
+			   height="10"
+			   block-width="20" 
+			   theme="grey">
+		</scale>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 		<script src="../scale.js"></script>

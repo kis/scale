@@ -8,7 +8,7 @@ angular.module('myApp', ['scale']).controller('main', ['$scope', function($scope
 		var value = Math.floor(Math.random() * (SCALE_HEIGHT - 1) + 1);
 
 		$scope.data.push({
-			value: value 
+			value: value
 		});
 	}
 }]);
