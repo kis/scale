@@ -2,7 +2,7 @@
  * Angular JS Scale
  *
  * Project started on: Wed, 21 Sep 2016 - 5:00:00 PM
- * Current version: 1.0.0
+ * Current version: 2.1.0
  *
  * Released under the MIT License
  * --------------------------------------------------------------------------------
@@ -42,7 +42,7 @@ angular.module('scale', ['ng']).directive('scale', ['$templateCache', function($
     link: function(scope, element, attrs) {
       scope.theme = attrs.theme || 'default';
       scope.hasLine = Boolean(attrs.line);
-      
+
       var SCALE_WIDTH = parseInt(attrs.width) || 50;
       var SCALE_HEIGHT = parseInt(attrs.height) || 10;
       var BLOCK_WIDTH = parseInt(attrs.boxSize) || 20;
