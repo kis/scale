@@ -4,7 +4,7 @@
 [![Download Month](https://img.shields.io/npm/dm/angular-scale.svg)](https://www.npmjs.com/package/angular-scale)
 [![Download Total](https://img.shields.io/npm/dt/angular-scale.svg)](https://www.npmjs.com/package/angular-scale)
 
-Angular plugin for building scale of items. Chart ruler completely on HTML/CSS/JS.
+Angular plugin for building scale of items. Chart ruler completely on HTML/CSS/JS. The source for this module is in the [main AngularJS repo](https://www.kinopoisk.ru/). Please create issues and pull requests.
 
 ![alt text](https://raw.githubusercontent.com/kirillstepkin/scale/master/img/output_eSVfyQ.gif)
 
@@ -73,10 +73,14 @@ angular.module('myApp', ['scale']).controller('main', ['$scope', function($scope
 * 09/20/2016 Rewriting the project as an Angular.js plugin.
 * 06/05/2016 Finished writing function for calculating angle of the line that connects the points of the chart. Rendering chart.
 
-### License
+### Social
 
 Copyright (c) 2016 [Kirill Stepkin](https://www.npmjs.com/~kirillstyopkin)
 
 Inspired by [kinopoisk.ru](https://www.kinopoisk.ru/) chart.
 
-Released under the [MIT License](https://github.com/goldfire/howler.js/blob/master/LICENSE.md).
+[![GitHub forks](https://img.shields.io/github/forks/badges/shields.svg?style=social&label=Fork&maxAge=2592000?style=plastic)](https://github.com/kirillstepkin/scale)
+[![GitHub stars](https://img.shields.io/github/stars/badges/shields.svg?style=social&label=Star&maxAge=2592000)](https://github.com/kirillstepkin/scale)
+[![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&maxAge=2592000)](https://github.com/kirillstepkin/scale)
+
+[![npm](https://img.shields.io/npm/l/express.svg?maxAge=2592000)](https://github.com/kirillstepkin/scale)
