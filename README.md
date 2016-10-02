@@ -4,6 +4,8 @@
 [![Download Month](https://img.shields.io/npm/dm/angular-scale.svg)](https://www.npmjs.com/package/angular-scale)
 [![Download Total](https://img.shields.io/npm/dt/angular-scale.svg)](https://www.npmjs.com/package/angular-scale)
 
+![alt text](https://raw.githubusercontent.com/kirillstepkin/scale/master/img/placeit.jpg)
+
 Angular plugin for building scale of items. Chart ruler completely on HTML/CSS/JS. The source for this module is in the [main repo](https://github.com/kirillstepkin/scale). Please create issues and pull requests.
 
 ![alt text](https://raw.githubusercontent.com/kirillstepkin/scale/master/img/output_eSVfyQ.gif)
@@ -89,10 +91,6 @@ Please check the example folder to see how it's going on practice.
 * grey
 
 ![alt text](https://raw.githubusercontent.com/kirillstepkin/scale/master/img/024486fd94.jpg)
-
-### Future features
-
-* Implement more options and controls to edit chart features
 
 ### Changelog
 
