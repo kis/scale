@@ -98,8 +98,10 @@ Please check the example folder to see how it's going on practice.
 * 09/20/2016 Rewriting the project as an Angular.js plugin.
 * 06/05/2016 Finished writing function for calculating angle of the line that connects the points of the chart. Rendering chart.
 
-### Social
+### License
 
-Copyright (c) 2016 [Kirill Stepkin](https://www.npmjs.com/~kirillstyopkin) [![npm](https://img.shields.io/npm/l/express.svg?maxAge=2592000)](https://github.com/kirillstepkin/scale)
+Copyright (c) 2016 [Kirill Stepkin](https://www.npmjs.com/~kirillstyopkin)
 
 Inspired by [kinopoisk.ru](https://www.kinopoisk.ru/) chart.
+
+[![npm](https://img.shields.io/npm/l/express.svg?maxAge=2592000)](https://github.com/kirillstepkin/scale)
