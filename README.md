@@ -6,7 +6,7 @@
 
 ![alt text](https://raw.githubusercontent.com/kirillstepkin/scale/master/img/placeit1.jpg)
 
-Angular plugin for building scale of items. Chart ruler completely on HTML/CSS/JS. The source for this module is in the [main repo](https://github.com/kirillstepkin/scale). Please create issues and pull requests.
+Angular plugin for building scale of items. Chart ruler completely on HTML/CSS/JS. Bar chart, line chart, calendar view visualisation. Diagram, graph, pyramid visualisation of large datasets. Showreel. The source for this module is in the [main repo](https://github.com/kirillstepkin/scale). Please create issues and pull requests.
 
 ![alt text](https://raw.githubusercontent.com/kirillstepkin/scale/master/img/output_eSVfyQ.gif)
 
