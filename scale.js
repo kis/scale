@@ -58,7 +58,7 @@ angular.module('scale', ['ng']).directive('scale', ['$templateCache', function($
       scope.marks = initData.splice(initData.length - SCALE_WIDTH, initData.length);
 
       scope.calcStyle = function(keyBlock, keyMark) {
-        var i = keyBlock,
+        var i = scope.rowBlocks.length - keyBlock,
             j = scope.marks[keyMark+1].value;
 
         var AC = BLOCK_WIDTH, 
@@ -66,7 +66,7 @@ angular.module('scale', ['ng']).directive('scale', ['$templateCache', function($
         var AB = Math.hypot( AC, BC );
         var angleA = Math.fround( Math.asin( BC / AB ) * 180 / Math.PI);
 
-        if (j < i) angleA = -angleA;
+        if (j > i) angleA = -angleA;
 
         return {
           "width": AB + "px",
@@ -80,8 +80,12 @@ angular.module('scale', ['ng']).directive('scale', ['$templateCache', function($
 }]).run( [ '$templateCache' , function( $templateCache ) {
   var template = '<div class="ruler-container {{theme}}">' + 
     '<div class="ruler-row" ng-repeat="(keyMark, mark) in marks track by $index">' +
-      '<div class="mark" ng-style="blockStyle" ng-class="{\'painted\': $index > mark.value, \'empty\': $index < mark.value}" ng-repeat="(keyBlock, block) in rowBlocks track by $index">' +
-        '<div class="line" ng-if="hasLine && $index == mark.value && keyMark < marks.length - 1" ng-style="calcStyle(keyBlock, keyMark)"></div>' +
+      '<div class="mark" ng-style="blockStyle" ng-class="{\'empty\': rowBlocks.length - $index > mark.value, \'painted\': rowBlocks.length - $index < mark.value}" ng-repeat="(keyBlock, block) in rowBlocks track by $index">' +
+        '<div class="line" ng-if="hasLine && rowBlocks.length - $index == mark.value && keyMark < marks.length - 1" ng-style="calcStyle(keyBlock, keyMark)"></div>' +
+        '<div ng-if="rowBlocks.length - $index == mark.value" class="tooltiptext">' +
+          '<div>{{mark.value}}</div>' +
+          '<div>{{mark.title}}</div>' +
+        '</div>' +
       '</div>' + 
     '</div>' +
   '</div>';

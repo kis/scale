@@ -54,10 +54,11 @@ angular.module('myApp', ['scale']).controller('main', ['$scope', function($scope
 	    SCALE_HEIGHT = 10;
 
 	for (var i=0; i < SCALE_WIDTH; i++) {
-		var value = Math.floor(Math.random() * (SCALE_HEIGHT - 1) + 1);
+		var value = Math.floor(Math.random() * SCALE_HEIGHT + 1);
 
 		$scope.data.push({
-			value: value
+			value: value, //Value from 1 to SCALE_HEIGHT
+			title: (i + 1) + " item" //Description
 		});
 	}
 }]);
@@ -102,7 +103,8 @@ Please check the example folder to see how it's going on practice.
 
 ### Changelog
 
-* 10/01/2016 Implemented different color schemes
+* 10/02/2016 Implemented tooltips.
+* 10/01/2016 Implemented different color schemes.
 * 09/20/2016 Rewriting the project as an Angular.js plugin.
 * 06/05/2016 Finished writing function for calculating angle of the line that connects the points of the chart. Rendering chart.
 

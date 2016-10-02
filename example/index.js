@@ -5,10 +5,11 @@ angular.module('myApp', ['scale']).controller('main', ['$scope', function($scope
 	    SCALE_HEIGHT = 10;
 
 	for (var i=0; i < SCALE_WIDTH; i++) {
-		var value = Math.floor(Math.random() * (SCALE_HEIGHT - 1) + 1);
+		var value = Math.floor(Math.random() * SCALE_HEIGHT + 1);
 
 		$scope.data.push({
-			value: value
+			value: value,
+			title: (i + 1) + " item"
 		});
 	}
 }]);
