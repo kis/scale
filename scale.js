@@ -41,10 +41,11 @@ angular.module('scale', ['ng']).directive('scale', ['$templateCache', function($
     },
     link: function(scope, element, attrs) {
       scope.theme = attrs.theme || 'default';
-
-      var SCALE_WIDTH = parseInt(attrs.width) || 50,
-          SCALE_HEIGHT = parseInt(attrs.height) || 10,
-          BLOCK_WIDTH = parseInt(attrs.blockWidth) || 20;
+      scope.hasLine = Boolean(attrs.line);
+      
+      var SCALE_WIDTH = parseInt(attrs.width) || 50;
+      var SCALE_HEIGHT = parseInt(attrs.height) || 10;
+      var BLOCK_WIDTH = parseInt(attrs.boxSize) || 20;
 
       scope.blockStyle = {
         width: BLOCK_WIDTH + 'px',
@@ -69,7 +70,9 @@ angular.module('scale', ['ng']).directive('scale', ['$templateCache', function($
 
         return {
           "width": AB + "px",
-          "transform": "rotate(" + angleA + "deg)"
+          "transform": "rotate(" + angleA + "deg)",
+          "top": parseInt(BLOCK_WIDTH/2) + 'px',
+          "left": parseInt(BLOCK_WIDTH/2) + 'px'
         };
       };
     }
@@ -78,7 +81,7 @@ angular.module('scale', ['ng']).directive('scale', ['$templateCache', function($
   var template = '<div class="ruler-container {{theme}}">' + 
     '<div class="ruler-row" ng-repeat="(keyMark, mark) in marks track by $index">' +
       '<div class="mark" ng-style="blockStyle" ng-class="{\'painted\': $index > mark.value, \'empty\': $index < mark.value}" ng-repeat="(keyBlock, block) in rowBlocks track by $index">' +
-        '<div class="line" ng-if="$index == mark.value && keyMark < marks.length - 1" ng-style="calcStyle(keyBlock, keyMark)"></div>' +
+        '<div class="line" ng-if="hasLine && $index == mark.value && keyMark < marks.length - 1" ng-style="calcStyle(keyBlock, keyMark)"></div>' +
       '</div>' + 
     '</div>' +
   '</div>';

@@ -4,7 +4,7 @@
 [![Download Month](https://img.shields.io/npm/dm/angular-scale.svg)](https://www.npmjs.com/package/angular-scale)
 [![Download Total](https://img.shields.io/npm/dt/angular-scale.svg)](https://www.npmjs.com/package/angular-scale)
 
-Angular plugin for building scale of items. Chart ruler completely on HTML/CSS/JS. The source for this module is in the [main AngularJS repo](https://www.kinopoisk.ru/). Please create issues and pull requests.
+Angular plugin for building scale of items. Chart ruler completely on HTML/CSS/JS. The source for this module is in the [main repo](https://github.com/kirillstepkin/scale). Please create issues and pull requests.
 
 ![alt text](https://raw.githubusercontent.com/kirillstepkin/scale/master/img/output_eSVfyQ.gif)
 
@@ -29,7 +29,13 @@ npm install angular-scale
 		<link rel="stylesheet" type="text/css" href="../scale.css">
 	</head>
 	<body ng-controller="main">
-		<scale data="data" theme="default"></scale>
+		<scale data="data" 
+			   width="50" 
+			   height="10"
+			   box-size="14"
+			   line="true"
+			   theme="default">
+		</scale>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 		<script src="../scale.js"></script>
@@ -49,11 +55,32 @@ angular.module('myApp', ['scale']).controller('main', ['$scope', function($scope
 		var value = Math.floor(Math.random() * (SCALE_HEIGHT - 1) + 1);
 
 		$scope.data.push({
-			value: value 
+			value: value
 		});
 	}
 }]);
 ```
+
+### Options
+
+```html
+<scale data="data" 
+	   width="50" 
+	   height="10"
+	   box-size="14"
+	   line="true"
+	   theme="default">
+</scale>
+```
+
+* [data] is an array of objects [{value: 0}, ... , {value: 10}]. This is the dataset of the chart.
+* [width] is the horizontal length of the data array. If width param is less than the length of the data array then user will see the last values of the data array. 
+* [height] is the vertical length.
+* [box-size] is size of each box in pixels.
+* [line] is param that determines if this is a line-chart.
+* [theme] is color scheme of the chart.
+
+Please check the example folder to see how it's going on practice.
 
 ### Themes
 
