@@ -100,12 +100,6 @@ Please check the example folder to see how it's going on practice.
 
 ### Social
 
-Copyright (c) 2016 [Kirill Stepkin](https://www.npmjs.com/~kirillstyopkin)
+Copyright (c) 2016 [Kirill Stepkin](https://www.npmjs.com/~kirillstyopkin) [![npm](https://img.shields.io/npm/l/express.svg?maxAge=2592000)](https://github.com/kirillstepkin/scale)
 
 Inspired by [kinopoisk.ru](https://www.kinopoisk.ru/) chart.
-
-[![GitHub forks](https://img.shields.io/github/forks/badges/angular-scale.svg?style=social&label=Fork&maxAge=2592000?style=plastic)](https://github.com/kirillstepkin/scale)
-[![GitHub stars](https://img.shields.io/github/stars/badges/angular-scale.svg?style=social&label=Star&maxAge=2592000)](https://github.com/kirillstepkin/scale)
-[![Twitter URL](https://img.shields.io/twitter/url/http/angular-scale.svg?style=social&maxAge=2592000)](https://github.com/kirillstepkin/scale)
-
-[![npm](https://img.shields.io/npm/l/express.svg?maxAge=2592000)](https://github.com/kirillstepkin/scale)
