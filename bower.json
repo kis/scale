@@ -14,9 +14,19 @@
     "scale",
     "items",
     "dataset",
+    "kinopoisk",
     "chart",
-    "ruler",
-    "kinopoisk"
+    "line-chart",
+    "bar-chart",
+    "marks",
+    "axis",
+    "calendar-view",
+    "pyramid",
+    "progress-chart",
+    "showreel",
+    "visualisation",
+    "diagram",
+    "graph"
   ],
   "license": "MIT",
   "ignore": [
