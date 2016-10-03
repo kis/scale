@@ -1,5 +1,4 @@
 .ruler-container {
-  background: #e5efe8;
   width: 1000px;
   height: 200px;
   position: relative;
@@ -29,6 +28,26 @@
   z-index: 99;
   box-sizing: border-box;
   transform-origin: left center;
+}
+
+.tooltiptext {
+  position: absolute;
+  z-index: 999;
+  visibility: hidden;
+  width: 120px;
+  left: 20px;
+  background-color: black;
+  color: #fff;
+  text-align: right;
+  padding: 5px 5px;
+}
+
+.tooltiptext div {
+  word-wrap: break-word;
+}
+
+.mark:hover .tooltiptext {
+  visibility: visible;
 }
 
 /* default theme */
@@ -80,24 +99,4 @@
 
 .grey .line {
   border: 2px solid #455A64;
-}
-
-.tooltiptext {
-  position: absolute;
-  z-index: 999;
-  visibility: hidden;
-  width: 120px;
-  left: 20px;
-  background-color: black;
-  color: #fff;
-  text-align: right;
-  padding: 5px 5px;
-}
-
-.tooltiptext div {
-  word-wrap: break-word;
-}
-
-.mark:hover .tooltiptext {
-  visibility: visible;
 }
