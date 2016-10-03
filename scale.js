@@ -40,6 +40,12 @@ angular.module('scale', ['ng']).directive('scale', ['$templateCache', function($
       data: '='
     },
     link: function(scope, element, attrs) {
+      scope.$watch('data', function(newVal, oldVal) {
+        if (newVal.length && newVal !== oldVal) {
+          init(newVal);
+        }
+      });
+
       scope.theme = attrs.theme || 'default';
       scope.hasLine = Boolean(attrs.line);
 
@@ -47,15 +53,20 @@ angular.module('scale', ['ng']).directive('scale', ['$templateCache', function($
       var SCALE_HEIGHT = parseInt(attrs.height) || 10;
       var BLOCK_WIDTH = parseInt(attrs.boxSize) || 20;
 
+      scope.rowBlocks = new Array(SCALE_HEIGHT);
+
       scope.blockStyle = {
         width: BLOCK_WIDTH + 'px',
         height: BLOCK_WIDTH + 'px'
       };
 
-      scope.rowBlocks = new Array(SCALE_HEIGHT);
-
-      var initData = angular.copy(scope.data);
-      scope.marks = initData.splice(initData.length - SCALE_WIDTH, initData.length);
+      function init(data) {
+        if (SCALE_WIDTH < data.length) {
+          scope.marks = data.slice(data.length - SCALE_WIDTH, data.length)
+        } else {
+          scope.marks = data;
+        }
+      }
 
       scope.calcStyle = function(keyBlock, keyMark) {
         var i = scope.rowBlocks.length - keyBlock,
